@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import logo from '../assets/logo.png'
 const Navbar = () => {
   const navigate = useNavigate();
   const navRef = useRef(null);
@@ -25,12 +25,13 @@ const Navbar = () => {
     <>
 
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3 fixed-top" ref={navRef}>
+        <img className="navbar-brand" src={logo} alt="logo" height={50}/>
         <span
           className="navbar-brand"
           style={{ cursor: "pointer" }}
           onClick={() => navigate("/")}
         >
-          E-Tree DevTrain
+          E-Tree
         </span>
 
         <button
@@ -49,7 +50,7 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
             <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={() => navigate("/courses")}>
+              <button className="nav-link btn btn-link" onClick={() => navigate("/")}>
                 Courses
               </button>
             </li>
