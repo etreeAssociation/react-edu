@@ -67,7 +67,7 @@ const Enquire = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        alert(decodedCourse)
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);

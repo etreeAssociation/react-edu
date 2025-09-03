@@ -5,7 +5,7 @@ import { useCourseContext } from "../../store/CoursesContext";
 const CoursesPage = () => {
   const [levelFilter, setLevelFilter] = useState("All");
   const [typeFilter, setTypeFilter] = useState("All");
-  const {availableCourses, loading} = useCourseContext();
+  const { availableCourses, loading } = useCourseContext();
 
   const levels = ["All", ...new Set(availableCourses.map((c) => c.level))];
   const types = ["All", ...new Set(availableCourses.map((c) => c.type))];
@@ -38,9 +38,8 @@ const CoursesPage = () => {
             {levels.map((level) => (
               <li key={level}>
                 <button
-                  className={`dropdown-item ${
-                    levelFilter === level ? "active" : ""
-                  }`}
+                  className={`dropdown-item ${levelFilter === level ? "active" : ""
+                    }`}
                   onClick={() => setLevelFilter(level)}
                 >
                   {level}
@@ -65,9 +64,8 @@ const CoursesPage = () => {
             {types.map((type) => (
               <li key={type}>
                 <button
-                  className={`dropdown-item ${
-                    typeFilter === type ? "active" : ""
-                  }`}
+                  className={`dropdown-item ${typeFilter === type ? "active" : ""
+                    }`}
                   onClick={() => setTypeFilter(type)}
                 >
                   {type}
@@ -84,20 +82,20 @@ const CoursesPage = () => {
           filteredCourses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))
-        ) : loading ?  (
-    <div className="container text-center" style={{ paddingTop: "100px" }}>
-      <div className="spinner-border text-primary" role="status">
-        <span className="visually-hidden">Loading courses...</span>
-      </div>
-      <p className="mt-3">Fetching available courses...</p>
-    </div>
-  ) :
-  (
-          
-          <div className="col-12 text-center">
-            <p>No courses found for selected filters.</p>
+        ) : loading ? (
+          <div className="container text-center" style={{ paddingTop: "100px" }}>
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading courses...</span>
+            </div>
+            <p className="mt-3">Fetching available courses...</p>
           </div>
-        )}
+        ) :
+          (
+
+            <div className="col-12 text-center">
+              <p>No courses found for selected filters.</p>
+            </div>
+          )}
       </div>
     </div>
   );
